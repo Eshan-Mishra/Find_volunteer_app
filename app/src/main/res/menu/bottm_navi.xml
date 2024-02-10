@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+
+    android:id="@+id/nav_home"
+    android:icon="@drawable/homehollow"
+    android:title="@string/home_title"/>
+
+    <item
+    android:id="@+id/nav_search"
+    android:icon="@drawable/searchhollow"
+    android:title="@string/search_title"/>
+
+
+
+    <item
+    android:id="@+id/nav_chat"
+    android:icon="@drawable/chathollow"
+    android:title="@string/chat_title"/>
+
+    <item
+    android:id="@+id/nav_acoount"
+    android:icon="@drawable/accounthollow"
+    android:title="@string/acoount_title"/>
+</menu>

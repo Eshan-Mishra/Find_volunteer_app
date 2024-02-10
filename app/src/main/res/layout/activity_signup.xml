@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blue_gard_bg"
+    tools:context=".Singup">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_bg"
+        android:elevation="20dp"
+        app:cardCornerRadius="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign up"
+                android:textAlignment="center"
+                android:textColor="#0732CB"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_pic"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/default_profile_pic"
+                app:cardElevation="20dp"
+                android:layout_weight="1"
+                /></LinearLayout>
+
+
+            <EditText
+                android:id="@+id/signup_username"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/round_bottom_bar"
+                android:drawableStart="@drawable/accounthollow"
+                android:drawablePadding="8dp"
+                android:hint="User Name"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:autofillHints=""
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:inputType="textEmailAddress"
+                android:id="@+id/signup_email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_bottom_bar"
+                android:drawableStart="@drawable/email"
+                android:drawablePadding="8dp"
+                android:hint="Email"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:autofillHints="" />
+
+
+            <EditText
+                android:id="@+id/signin_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_bottom_bar"
+                android:drawableStart="@drawable/passicon"
+                android:drawablePadding="8dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:autofillHints=""/>
+
+
+            <EditText
+
+                android:id="@+id/mobile_no"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_bottom_bar"
+                android:drawableStart="@drawable/mobile_no"
+                android:drawablePadding="8dp"
+                android:hint="mobile number"
+                android:inputType="number"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:autofillHints=""/>
+
+
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_bottom_bar"
+                android:drawableStart="@drawable/location_city"
+                android:drawablePadding="8dp"
+                android:hint="city"
+                android:inputType="textAutoComplete"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:autofillHints="" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <Button
+                android:layout_weight="2"
+                android:id="@+id/signin_button"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="#0732CB"
+                android:text="Signin"
+                android:textSize="18sp"
+                app:cornerRadius="20dp"/>
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
