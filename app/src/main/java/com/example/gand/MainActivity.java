@@ -46,23 +46,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(int i, @Nullable AnimatedBottomBar.Tab tab, int i1, @NonNull AnimatedBottomBar.Tab tab1) {
 
-                replace(new HomeFragment());
-
                 if (tab1.getId()==R.id.nav_home){
                     replace(new HomeFragment());
-//                    appheader.setText(R.string.home_title);
-
-                }else if (tab1.getId()==R.id.nav_search){
+                } else if (tab1.getId()==R.id.nav_search){
                     replace(new SearchFragment());
-//                    appheader.setText(R.string.skills_title);
-
-                }else if (tab1.getId()==R.id.nav_acoount){
-                    replace(new AccountFragment() );
-//                    appheader.setText(R.string.acoount_title);
-
-                }else if (tab1.getId()==R.id.nav_chat){
+                } else if (tab1.getId()==R.id.nav_acoount){
+                    replace(new AccountFragment());
+                } else if (tab1.getId()==R.id.nav_chat){
                     replace(new ChatFragment());
-//                    appheader.setText(R.string.chat_title);
                 }
             }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blue_gard_bg"
+    android:background="@drawable/brown_rounded"
     tools:context=".Singup">
 
     <androidx.cardview.widget.CardView
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="Sign up"
                 android:textAlignment="center"
-                android:textColor="#0732CB"
+                android:textColor="@color/brown_text"
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
@@ -136,7 +136,7 @@
                 android:id="@+id/signin_button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:backgroundTint="#0732CB"
+                android:backgroundTint="#FFF69C5A"
                 android:text="Signin"
                 android:textSize="18sp"
                 app:cornerRadius="20dp"/>
