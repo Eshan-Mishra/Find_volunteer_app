@@ -1,4 +1,4 @@
-package com.example.gand.customer;
+package com.example.gand;
 
 import android.content.Context;
 import android.view.LayoutInflater;

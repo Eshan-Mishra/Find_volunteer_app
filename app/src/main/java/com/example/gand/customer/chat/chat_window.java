@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gand.R;
-import com.example.gand.customer.messagesAdapter;
+import com.example.gand.messagesAdapter;
 import com.example.gand.msgModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -57,7 +57,6 @@ public class chat_window extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference().child("user").child(auth.getUid());
 
         String receiver_uid = getIntent().getStringExtra("receiver_uid");
         String receiver_user_name = getIntent().getStringExtra("receiver_user_name");

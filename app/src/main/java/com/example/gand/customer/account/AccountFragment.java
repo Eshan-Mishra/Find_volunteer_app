@@ -53,12 +53,12 @@ TextView user_name,user_num,user_city;
 
 
 
-        View view =inflater.inflate(R.layout.fragment_account, container, false);
+        View view =inflater.inflate(R.layout.accoun2, container, false);
 
         account_dp=view.findViewById(R.id.account_dp);
         user_name = view.findViewById(R.id.user_name);
-        user_city= view.findViewById(R.id.user_city);
-        user_num= view.findViewById(R.id.user_num);
+        user_city= view.findViewById(R.id.resident);
+//        user_num= view.findViewById(R.id.user_num);
 
 
         auth=FirebaseAuth.getInstance();
@@ -70,7 +70,7 @@ TextView user_name,user_num,user_city;
 //        SharedPreferences preferences = this.getActivity().getSharedPreferences("my prefrence", Context.MODE_PRIVATE);
 //        Stringring id = preferences.getString("userid");
 
-        Log.d("uid_is","uid is "+id);
+//        Log.d("uid_is","uid is "+id);
         DatabaseReference refrence= database.getReference().child("user").child(id);
 
         refrence.addValueEventListener(new ValueEventListener() {
@@ -80,7 +80,7 @@ TextView user_name,user_num,user_city;
                 String imguri=snapshot.child("profile_pic").getValue(String.class);
                 Picasso.get().load(imguri).into(account_dp);
                 user_city.setText(snapshot.child("city").getValue(String.class));
-                user_num.setText(snapshot.child("mobile_no").getValue(String.class));
+//                user_num.setText(snapshot.child("mobile_no").getValue(String.class));
                 user_name.setText(username);
 
 

@@ -14,11 +14,12 @@
     
 
     <nl.joery.animatedbottombar.AnimatedBottomBar
+        android:background="#F2EDE8"
         app:abb_textAppearance="@style/CustomText"
         android:layout_alignParentBottom="true"
         app:abb_tabAnimationSelected="slide"
         android:id="@+id/bnView"
-        app:abb_tabColorSelected="#0732CB"
+        app:abb_tabColorSelected="#996B4D"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         app:abb_selectedTabType="text"
@@ -27,7 +28,7 @@
         app:abb_indicatorMargin="16dp"
         app:abb_indicatorHeight="4dp"
         app:abb_indicatorLocation="bottom"
-        app:abb_indicatorColor="#0732CB"
+        app:abb_indicatorColor="#F69C5A"
         app:abb_tabs="@menu/bottm_navi"
         app:abb_selectedIndex="0" />
 
