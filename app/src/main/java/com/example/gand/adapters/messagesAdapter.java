@@ -1,4 +1,4 @@
-package com.example.gand;
+package com.example.gand.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,17 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gand.R;
-import com.example.gand.msgModel;
+import com.example.gand.model.msgModel;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
 public class messagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private Context context;
-    private ArrayList<msgModel> messages;
+    private final Context context;
+    private final ArrayList<msgModel> messages;
 
     public messagesAdapter(Context context, ArrayList<msgModel> messages) {
         this.context = context;

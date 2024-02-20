@@ -12,15 +12,13 @@ import android.os.Bundle;
 import com.example.gand.customer.account.AccountFragment;
 import com.example.gand.customer.chat.ChatFragment;
 import com.example.gand.customer.home.HomeFragment;
-import com.example.gand.customer.search.SearchFragment;
+import com.example.gand.customer.post.PostFragment;
 import com.example.gand.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
 import nl.joery.animatedbottombar.AnimatedBottomBar;
 
 public class MainActivity extends AppCompatActivity {
-    private AnimatedBottomBar bnView;
-//    TextView appheader;
     FirebaseAuth auth;
 
     ActivityMainBinding binding;
@@ -39,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-//        appheader = findViewById(R.id.appheader);
 
 
         binding.bnView.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
@@ -49,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 if (tab1.getId()==R.id.nav_home){
                     replace(new HomeFragment());
                 } else if (tab1.getId()==R.id.nav_search){
-                    replace(new SearchFragment());
+                    replace(new PostFragment());
                 } else if (tab1.getId()==R.id.nav_acoount){
                     replace(new AccountFragment());
                 } else if (tab1.getId()==R.id.nav_chat){
@@ -63,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        replace(new HomeFragment());
 
     }//=====================================================================================================================================================
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="3dp"
     android:background="#F5F2F0"
-    tools:context=".customer.account.AccountFragment">
+    tools:context=".profile_explore">
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -19,15 +19,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/account_dp"
-                android:layout_width="128dp"
-                android:layout_height="128dp"
-                android:layout_marginHorizontal="10dp"
-                android:src="@drawable/default_profile_pic" />
-
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/account_dp"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginHorizontal="10dp"
+            android:src="@drawable/default_profile_pic" />
 
 
         <LinearLayout
@@ -44,21 +41,22 @@
                 android:layout_height="27.5dp"
                 android:layout_marginTop="20dp"
                 android:gravity="top"
+                android:hint="user_name"
                 android:lineSpacingExtra="0sp"
-                android:text="user_name"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
 
             <TextView
+
                 android:id="@+id/age_gender"
                 android:layout_width="185.19dp"
-                android:layout_height="27.5dp"
+                android:layout_height="38dp"
                 android:layout_marginTop="3dp"
                 android:gravity="top"
-                android:lineSpacingExtra="0sp"
-                android:text="age_gender"
-                android:textColor="#8A7061"
+                android:hint="age, gender"
+                android:textColor="#795548"
+                android:textColorHint="@color/brown_text"
                 android:textSize="16sp" />
 
 
@@ -69,6 +67,7 @@
                 android:layout_marginTop="3dp"
                 android:gravity="top"
                 android:lineSpacingExtra="0sp"
+                android:maxHeight="35dp"
                 android:text="resident"
                 android:textColor="#8A7061"
                 android:textSize="16sp" />
@@ -92,7 +91,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
-    <EditText
+    <TextView
         android:id="@+id/skills"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -103,6 +102,8 @@
         android:maxHeight="50dp"
         android:minHeight="48dp"
         android:textColor="#8A7061"
+        android:textSize="16dp"
+
         android:textColorHint="#795548"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:layout_editor_absoluteX="4dp" />
@@ -120,7 +121,7 @@
         app:layout_constraintTop_toBottomOf="@+id/skills"
         tools:layout_editor_absoluteX="4dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/about"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -131,26 +132,27 @@
         android:maxHeight="60dp"
         android:minHeight="48dp"
         android:textColor="#8A7061"
+        android:textSize="16dp"
         android:textColorHint="#795548"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:layout_editor_absoluteX="0dp" />
 
 
     <Button
-        android:id="@+id/acc_logout_btn"
+        android:id="@+id/message_them"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="137dp"
-        android:layout_marginEnd="180dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="274dp"
+        android:layout_marginBottom="261dp"
         android:backgroundTint="#FFF69C5A"
-        android:text="@string/log_out"
+        android:text="@string/message"
         android:textColor="#795548"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.gand;
+package com.example.gand.model;
 
 public class postModel {
     String uid,username,body,post_img,location;

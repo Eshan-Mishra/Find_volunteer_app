@@ -1,4 +1,4 @@
-package com.example.gand.customer.search;
+package com.example.gand.customer.post;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gand.R;
-import com.example.gand.Singup;
-import com.example.gand.postModel;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
+import com.example.gand.model.postModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,10 +29,12 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.util.Objects;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class SearchFragment extends Fragment {
+public class PostFragment extends Fragment {
 
     CircleImageView profile_pic;
     ImageView post_img;
@@ -53,7 +50,7 @@ public class SearchFragment extends Fragment {
 
 
 
-    public SearchFragment() {
+    public PostFragment() {
         // Required empty public constructor
     }
 
@@ -76,7 +73,7 @@ public class SearchFragment extends Fragment {
 
         StorageReference storageReference=storage.getReference().child("upload").child("post").child(id);
 
-        View view =inflater.inflate(R.layout.fragment_search, container, false);
+        View view =inflater.inflate(R.layout.fragment_post, container, false);
 
         profile_pic=view.findViewById(R.id.profile_pic);
         create_post=view.findViewById(R.id.creat_post);
@@ -120,15 +117,18 @@ public class SearchFragment extends Fragment {
                             postModel postModel=new postModel(id,Username,Body,imageuri,LOCAtion);
 
                             reference.push().setValue(postModel).addOnCompleteListener(task1 -> {
-                                if (task1.isSuccessful()){
-                                    Toast.makeText(getContext(), "post uploaded", Toast.LENGTH_SHORT).show();
-                                    body.setText("");
-                                    location.setText("");
-                                    post_img.setImageResource(0);
-                                }else {
-                                    Toast.makeText(getContext(), "Error in uploading post", Toast.LENGTH_SHORT).show();
-
-                                }
+                                    if (task1.isSuccessful()){
+                                        if (isAdded()) { // Check if the fragment is currently added to its activity
+                                            Toast.makeText(requireActivity().getApplicationContext(), "post uploaded", Toast.LENGTH_SHORT).show();
+                                            body.setText("");
+                                            location.setText("");
+                                            post_img.setImageResource(0);
+                                        }
+                                    }else {
+                                        if (isAdded()) { // Check if the fragment is currently added to its activity
+                                            Toast.makeText(requireActivity().getApplicationContext(), "Error in uploading post", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
 
                             });
 

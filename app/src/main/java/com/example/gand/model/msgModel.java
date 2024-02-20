@@ -1,4 +1,4 @@
-package com.example.gand;
+package com.example.gand.model;
 
 public class msgModel {
 

@@ -14,9 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Material3.Light.NoActionBar"
         tools:targetApi="31" >
-        <activity
-            android:name=".account2"
-            android:exported="false" />
+        <activity android:name=".profile_explore" />
         <activity
             android:name=".customer.chat.chat_window"
             android:exported="false" />

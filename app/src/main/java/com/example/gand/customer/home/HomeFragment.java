@@ -12,15 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.gand.R;
-import com.example.gand.postAdapter;
-import com.example.gand.postModel;
+import com.example.gand.adapters.postAdapter;
+import com.example.gand.model.postModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
@@ -66,7 +65,7 @@ public class HomeFragment extends Fragment {
                 for (DataSnapshot userSnapshot: snapshot.getChildren()){
                     for (DataSnapshot postSnapshot: userSnapshot.getChildren()){
                         postModel post= postSnapshot.getValue(postModel.class);
-                        postModelArrayList.add(post);
+                        postModelArrayList.add(0, post);
                     }
                 }
                 adapter.notifyDataSetChanged();
