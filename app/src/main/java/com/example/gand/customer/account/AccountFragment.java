@@ -37,7 +37,7 @@ public class AccountFragment extends Fragment {
 Button acc_logout_btn,save;
 ImageView account_dp;
 
-TextView user_name,user_num,residence;
+TextView user_name,residence;
 
 EditText age_gender,skills,about;
 
@@ -135,7 +135,7 @@ EditText age_gender,skills,about;
                 age_gender.setText(snapshot.child("age_gender").getValue(String.class));
                 skills.setText(snapshot.child("skills").getValue(String.class));
                 about.setText(snapshot.child("about").getValue(String.class));
-                Log.d("Firebase", "Skills: " + snapshot.child("skills").getValue());
+//                Log.d("Firebase", "Skills: " + snapshot.child("skills").getValue());
 
 
 

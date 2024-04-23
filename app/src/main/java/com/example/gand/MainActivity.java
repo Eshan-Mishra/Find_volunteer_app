@@ -19,7 +19,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import nl.joery.animatedbottombar.AnimatedBottomBar;
 
 public class MainActivity extends AppCompatActivity {
-    FirebaseAuth auth;
 
     ActivityMainBinding binding;
 
@@ -29,12 +28,7 @@ public class MainActivity extends AppCompatActivity {
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        auth=FirebaseAuth.getInstance();
 
-        if (auth.getCurrentUser()==null){
-            Intent intent= new Intent(MainActivity.this, Login.class);
-            startActivity(intent);
-        }
 
 
 

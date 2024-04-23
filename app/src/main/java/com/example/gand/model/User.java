@@ -1,12 +1,12 @@
 package com.example.gand.model;
 
 public class User {
-    String profile_pic,mail,userName,password,userId,lastMessage,status,mobile_no,residence;
+    String profile_pic,mail,userName,password,userId,lastMessage,mobile_no,residence;
 
     String age_gender,skills,about;
 
 
-    public User(String userId, String userName, String mail, String password , String profile_pic, String status,
+    public User(String userId, String userName, String mail, String password , String profile_pic,
                 String mobile_no, String residence, String age_gender, String skills, String about) {
 
         this.profile_pic = profile_pic;
@@ -14,7 +14,6 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.userId = userId;
-        this.status = status;
         this.mobile_no = mobile_no;
         this.residence = residence;
         this.age_gender = age_gender;
@@ -30,13 +29,12 @@ public class User {
         this.about = about;
     }
 
-    public User(String userId, String userName, String mail, String password , String profile_pic, String status, String mobile_no, String residence){
+    public User(String userId, String userName, String mail, String password , String profile_pic, String mobile_no, String residence){
         this.userId = userId;
         this.userName = userName;
         this.mail = mail;
         this.password = password;
         this.profile_pic = profile_pic;
-        this.status = status;
         this.residence=residence;
         this.mobile_no=mobile_no;
     }
@@ -111,14 +109,6 @@ public class User {
 
     public void setLastMessage(String lastMessage) {
         this.lastMessage = lastMessage;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public String getMobile_no() {

@@ -48,8 +48,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull UserAdapter.ViewHolder holder, int position) {
         User user=usersArrayList.get(position);
         holder.sender_name.setText(user.getUserName());
-        holder.sender_last_mess.setText(user.getStatus());
-        holder.userimg.setImageURI(Uri.parse(user.getProfile_pic()));
 
         Picasso.get().load(user.getProfile_pic()).into(holder.userimg);
 
@@ -82,14 +80,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
         CircleImageView userimg;
         TextView sender_name;
-        TextView sender_last_mess;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             userimg=itemView.findViewById(R.id.userimg);
             sender_name=itemView.findViewById(R.id.sender_name);
-            sender_last_mess=itemView.findViewById(R.id.sender_last_mess);
         }
     }
 }

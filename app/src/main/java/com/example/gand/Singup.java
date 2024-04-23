@@ -30,8 +30,6 @@ public class Singup extends AppCompatActivity {
 
     ProgressBar progressBar;
 
-    String status = "Hey I'm Using This Application";
-
     CircleImageView profile_pic;
     FirebaseAuth auth;
     Uri imageUri;
@@ -109,9 +107,9 @@ public class Singup extends AppCompatActivity {
                                 if (task1.isSuccessful()){
                                     storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
                                         imageuri=uri.toString();
-                                        User users=new User(id,username,email,password,imageuri,status,mobile,residence," "," "," ");
+                                        User users=new User(id,username,email,password,imageuri,mobile,residence," "," "," ");
 
-                                        Log.d("Debug", "Checked value: " + checked);
+//                                        Log.d("Debug", "Checked value: " + checked);
 
                                         if (checked){
                                             entity.setValue(users).addOnCompleteListener(task22 -> {
@@ -153,7 +151,7 @@ public class Singup extends AppCompatActivity {
 
                         }else {
                             imageuri="https://firebasestorage.googleapis.com/v0/b/gand-48379.appspot.com/o/Screenshot%202024-02-04%20at%207.43.56%E2%80%AFPM.png?alt=media&token=a3ca9bae-87be-4b9a-b3b5-2d3ba3f3706a";
-                            User users=new User(id,username,email,password,imageuri,status,mobile,residence);
+                            User users=new User(id,username,email,password,imageuri,mobile,residence);
 
                             if (!checked){
                                 Toast.makeText(this, "profile pic required", Toast.LENGTH_SHORT).show();

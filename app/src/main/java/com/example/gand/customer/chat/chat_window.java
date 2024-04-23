@@ -48,7 +48,7 @@ public class chat_window extends AppCompatActivity {
 
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setStackFromEnd(true); // This will make the layout start from the end of the list
+        layoutManager.setStackFromEnd(true);
 
         message_display.setLayoutManager(layoutManager);
         messagesArrayList = new ArrayList<>();

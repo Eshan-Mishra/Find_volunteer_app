@@ -1,5 +1,6 @@
 package com.example.gand;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,7 +11,13 @@ import android.widget.CheckedTextView;
 import android.widget.Toast;
 
 import com.example.gand.databinding.ActivityLoginBinding;
+import com.example.gand.model.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class Login extends AppCompatActivity {
@@ -32,6 +39,7 @@ public class Login extends AppCompatActivity {
         if (auth.getCurrentUser()!=null){
             Intent intent=new Intent(Login.this, MainActivity.class);
             startActivity(intent);
+            finish();
         }
 //==========================================================================================================================
 
@@ -79,12 +87,6 @@ public class Login extends AppCompatActivity {
             Intent intent = new Intent(Login.this, Singup.class);
             startActivity(intent);
             finish();
-        });
-
-        binding.checkbox.setOnClickListener(v -> {
-            binding.checkbox.isChecked();
-
-            boolean checked = binding.checkbox.isChecked();
         });
     }
 }
