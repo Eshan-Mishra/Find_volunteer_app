@@ -54,6 +54,7 @@
         app:layout_constraintTop_toBottomOf="@id/a23">
 
         <TextView
+
             android:background="@drawable/brown_rounded"
             android:padding="7dp"
             android:id="@+id/body"
@@ -94,15 +95,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:text="jkldaskdjas"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_img" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

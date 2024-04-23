@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="3dp"
     android:background="#F5F2F0"
-    tools:context=".customer.account.AccountFragment">
+    tools:context=".profile_explore">
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -47,7 +47,7 @@
                 android:textStyle="bold" />
 
 
-            <EditText
+            <TextView
 
                 android:id="@+id/age_gender"
                 android:layout_width="185.19dp"
@@ -91,7 +91,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
-    <EditText
+    <TextView
         android:id="@+id/skills"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -102,6 +102,8 @@
         android:maxHeight="50dp"
         android:minHeight="48dp"
         android:textColor="#8A7061"
+        android:textSize="16dp"
+
         android:textColorHint="#795548"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:layout_editor_absoluteX="4dp" />
@@ -119,7 +121,7 @@
         app:layout_constraintTop_toBottomOf="@+id/skills"
         tools:layout_editor_absoluteX="4dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/about"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -130,38 +132,27 @@
         android:maxHeight="60dp"
         android:minHeight="48dp"
         android:textColor="#8A7061"
+        android:textSize="16dp"
         android:textColorHint="#795548"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:layout_editor_absoluteX="0dp" />
 
 
     <Button
-        android:id="@+id/save"
+        android:id="@+id/message_them"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="274dp"
+        android:layout_marginBottom="261dp"
         android:backgroundTint="#FFF69C5A"
-        android:text="save"
-        android:textColor="#37474F"
-        android:textSize="20sp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.012"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/about" />
-
-    <Button
-        android:id="@+id/acc_logout_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FFF69C5A"
-        android:text="@string/log_out"
+        android:text="@string/message"
         android:textColor="#795548"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

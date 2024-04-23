@@ -15,6 +15,11 @@
     <string name="password">Password</string>
     <string name="support_and_help">Support and Help</string>
     <string name="log_out">Log Out</string>
+    <string name="post">post</string>
+    <string name="message">Message</string>
+    <string name="login_as_entity">login as entity</string>
+    <string name="login">Login</string>
+    <string name="not_yet_registered_sign_up">Not yet registered? Sign Up</string>
 
 
 </resources>

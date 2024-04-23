@@ -13,8 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.gand.R;
-import com.example.gand.UserAdapter;
-import com.example.gand.User;
+import com.example.gand.adapters.UserAdapter;
+import com.example.gand.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -51,30 +51,67 @@ public class ChatFragment extends Fragment {
         auth=FirebaseAuth.getInstance();
 
         DatabaseReference reference = database.getReference().child("user");
+        DatabaseReference chats = database.getReference().child("chats");
 
         usersArrayList  =new ArrayList<>();
         adapter=new UserAdapter(ChatFragment.this,usersArrayList);
         Frag_chat_recycler.setAdapter(adapter);
 
-        reference.addValueEventListener(new ValueEventListener() {
-           @Override
-           public void onDataChange(@NonNull DataSnapshot snapshot) {
-               for (DataSnapshot dataSnapshot: snapshot.getChildren())
-               {
-                   
-                User user=dataSnapshot.getValue(User.class);
+        chats.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    String key = dataSnapshot.getKey();
+                    if (key != null && key.startsWith(auth.getCurrentUser().getUid())) {
+                        String new_key=key.replaceFirst(auth.getCurrentUser().getUid(),"");
 
-                if (user!=null && !user.getUserId().equals(auth.getCurrentUser().getUid()))
-                  usersArrayList.add(user);
-               }
-                adapter.notifyDataSetChanged();
-           }
+                        reference.child(new_key).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot user_snapshot) {
+                                User user=user_snapshot.getValue(User.class);
+                                usersArrayList.add(user);
+                                adapter.notifyDataSetChanged();
 
-           @Override
-           public void onCancelled(@NonNull DatabaseError error) {
 
-           }
-       });
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+//                        Log.d("chat", "Key starts with user's UID: " + key.replaceFirst(auth.getCurrentUser().getUid(), ""));
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+//        reference.addValueEventListener(new ValueEventListener() {
+//           @Override
+//           public void onDataChange(@NonNull DataSnapshot snapshot) {
+//               for (DataSnapshot dataSnapshot: snapshot.getChildren())
+//               {
+//                User user=dataSnapshot.getValue(User.class);
+//
+//                if (user!=null && !user.getUserId().equals(auth.getCurrentUser().getUid()))
+//                  usersArrayList.add(user);
+//               }
+//                adapter.notifyDataSetChanged();
+//           }
+//
+//           @Override
+//           public void onCancelled(@NonNull DatabaseError error) {
+//
+//           }
+//       });
 
         return view;
     }

@@ -1,15 +1,23 @@
 package com.example.gand;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.CheckedTextView;
 import android.widget.Toast;
 
 import com.example.gand.databinding.ActivityLoginBinding;
+import com.example.gand.model.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class Login extends AppCompatActivity {
@@ -17,6 +25,7 @@ public class Login extends AppCompatActivity {
     FirebaseAuth auth;
     String email,pass;
     String email_pattern="[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
 
 
 
@@ -30,6 +39,7 @@ public class Login extends AppCompatActivity {
         if (auth.getCurrentUser()!=null){
             Intent intent=new Intent(Login.this, MainActivity.class);
             startActivity(intent);
+            finish();
         }
 //==========================================================================================================================
 
@@ -56,19 +66,6 @@ public class Login extends AppCompatActivity {
 
                     if (task.isSuccessful()) {
                         try {
-                            String id =auth.getCurrentUser().getUid();
-                            SharedPreferences preferences= getSharedPreferences("my prefrence",MODE_PRIVATE);
-                            SharedPreferences.Editor editor= preferences.edit().putString("uid",id);
-                            editor.apply();
-
-                            Log.d("singup_uid"," id: "+id);
-
-                            String pagal=preferences.getString("uid"," ");
-
-                            Log.d("pagal"," "+pagal);
-
-
-
                             Intent intent = new Intent(Login.this, MainActivity.class);
                             startActivity(intent);
                             finish();

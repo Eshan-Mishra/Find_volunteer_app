@@ -1,11 +1,10 @@
 package com.example.gand;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.accounts.Account;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +13,9 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.gand.databinding.ActivitySignupBinding;
+import com.example.gand.model.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -24,11 +26,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Singup extends AppCompatActivity {
     ActivitySignupBinding binding;
-    String username,password,email,id,mobile,city;
+    String username,password,email,id,mobile,residence;
 
     ProgressBar progressBar;
-
-    String status = "Hey I'm Using This Application";
 
     CircleImageView profile_pic;
     FirebaseAuth auth;
@@ -38,6 +38,8 @@ public class Singup extends AppCompatActivity {
 
     FirebaseDatabase database;
     FirebaseStorage storage;
+
+    boolean checked;
 
 
     @Override
@@ -50,13 +52,25 @@ public class Singup extends AppCompatActivity {
 
         profile_pic=binding.profilePic;
 
+        binding.checkbox.setOnClickListener(v1 -> {
+            binding.checkbox.isChecked();
+
+            checked = binding.checkbox.isChecked();
+//                Log.d("box", String.valueOf((checked)));
+
+        });
+
+
+
+
+
         binding.signinButton.setOnClickListener(v -> {
 
             username=binding.signupUsername.getText().toString();
             password=binding.signinPassword.getText().toString();
             email=binding.signupEmail.getText().toString();
             mobile=binding.mobileNo.getText().toString();
-            city=binding.city.getText().toString();
+            residence=binding.resident.getText().toString();
             progressBar=binding.progressBar;
 
 
@@ -64,7 +78,7 @@ public class Singup extends AppCompatActivity {
             database = FirebaseDatabase.getInstance();
             storage = FirebaseStorage.getInstance();
 
-            if (username.isEmpty()||password.isEmpty()||email.isEmpty()||mobile.isEmpty()||city.isEmpty()){
+            if (username.isEmpty()||password.isEmpty()||email.isEmpty()||mobile.isEmpty()||residence.isEmpty()){
                 Toast.makeText(Singup.this, "Please Enter Valid Information", Toast.LENGTH_SHORT).show();
 
             }else if (!email.matches(email_pattern)) {
@@ -81,6 +95,7 @@ public class Singup extends AppCompatActivity {
 
 
                         DatabaseReference reference=database.getReference().child("user").child(id);
+                        DatabaseReference entity= database.getReference().child("entity").child(id);
                         StorageReference storageReference=storage.getReference().child("upload").child(id);
 
                         progressBar.setVisibility(View.VISIBLE);
@@ -92,7 +107,31 @@ public class Singup extends AppCompatActivity {
                                 if (task1.isSuccessful()){
                                     storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
                                         imageuri=uri.toString();
-                                        User users=new User(id,username,email,password,imageuri,status,mobile,city);
+                                        User users=new User(id,username,email,password,imageuri,mobile,residence," "," "," ");
+
+//                                        Log.d("Debug", "Checked value: " + checked);
+
+                                        if (checked){
+                                            entity.setValue(users).addOnCompleteListener(task22 -> {
+                                                if (task22.isSuccessful()){
+                                                    Toast.makeText(this, "Entity created", Toast.LENGTH_SHORT).show();
+                                                }
+                                                else {
+                                                    Toast.makeText(this, "failed to creaate an entity ", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                        }
+
+
+
+
+
+
+
+
+
+
+
                                         reference.setValue(users).addOnCompleteListener(task2 -> {
                                             progressBar.setVisibility(View.GONE);
                                             if (task2.isSuccessful()){
@@ -112,7 +151,17 @@ public class Singup extends AppCompatActivity {
 
                         }else {
                             imageuri="https://firebasestorage.googleapis.com/v0/b/gand-48379.appspot.com/o/Screenshot%202024-02-04%20at%207.43.56%E2%80%AFPM.png?alt=media&token=a3ca9bae-87be-4b9a-b3b5-2d3ba3f3706a";
-                            User users=new User(id,username,email,password,imageuri,status,mobile,city);
+                            User users=new User(id,username,email,password,imageuri,mobile,residence);
+
+                            if (!checked){
+                                Toast.makeText(this, "profile pic required", Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
+                            }else {
+
+
+
+
+
                             reference.setValue(users).addOnCompleteListener(task1 -> {
                                 progressBar.setVisibility(View.GONE);
                                 if (task1.isSuccessful()){
@@ -126,6 +175,7 @@ public class Singup extends AppCompatActivity {
 
                             });
 
+                        }
                         }
 
 

@@ -12,8 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gand.R;
-import com.example.gand.messagesAdapter;
-import com.example.gand.msgModel;
+import com.example.gand.adapters.messagesAdapter;
+import com.example.gand.model.msgModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -48,7 +48,7 @@ public class chat_window extends AppCompatActivity {
 
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setStackFromEnd(true); // This will make the layout start from the end of the list
+        layoutManager.setStackFromEnd(true);
 
         message_display.setLayoutManager(layoutManager);
         messagesArrayList = new ArrayList<>();
@@ -76,6 +76,8 @@ public class chat_window extends AppCompatActivity {
                     messagesArrayList.add(messages);
                 }
                 messagesAdapter.notifyDataSetChanged();
+                message_display.scrollToPosition(messagesArrayList.size() - 1);
+
             }
 
             @Override
