@@ -42,7 +42,16 @@
 
 ## 📸 Screenshots
 
-Include screenshots of your application here to showcase different functionalities and UI elements.
+<img width="217" alt="image" src="https://github.com/Eshan-Mishra/Find_volunteer_app/assets/128164974/ad2c661a-12bb-49f9-acb2-4db786be3bca"> <img width="214" alt="image" src="https://github.com/Eshan-Mishra/Find_volunteer_app/assets/128164974/710c6d18-4d17-4e72-b0c5-73198eb901a5"> <img width="216" alt="image" src="https://github.com/Eshan-Mishra/Find_volunteer_app/assets/128164974/c6c661a9-1f5f-408a-8ac3-62d576d9b3f1"><img width="218" alt="image" src="https://github.com/Eshan-Mishra/Find_volunteer_app/assets/128164974/97abd12e-7258-4801-a285-bbf8f5266df7">
+
+
+
+
+
+
+
+
+
 
 ## 🤝 Contributing
 
